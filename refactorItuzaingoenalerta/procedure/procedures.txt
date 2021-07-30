@@ -1,0 +1,35 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `obtPersonas`(IN a_desde INT(4), IN a_hasta INT(4))
+BEGIN
+	
+	SELECT p.id, nombre, apellido, dni, tipo_doc, email, ruc, partida_numero, 
+	   DATE_FORMAT(f_nacimiento, '%d/%m/%Y') f_nacimiento, estado,gio,
+	   DATE_FORMAT(licencia_vencimiento, '%d/%m/%Y') licencia_vencimiento,
+	   licencia_numero, licencia_vencimiento, observaciones, DATE_FORMAT(p.alta, '%Y/%m/%d') alta,
+	   direccion_id, d.calle, d.altura, d.piso, d.dpto, d.ecalles, d.latitud, d.longitud,
+			s.id seccion_id, s.titulo, s.descripcion as descripcion_seccion
+	FROM persona p, direccion d, seccion s
+	WHERE p.direccion_id = d.id  
+		AND p.estado != 'X'
+		AND d.seccion_id = s.id
+		AND DATE_FORMAT( p.alta, '%Y' ) >= a_desde
+		AND DATE_FORMAT( p.alta, '%Y' ) <= a_hasta;
+
+END$$
+
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `obtPersonasValidadas`(IN a_desde INT(4), IN a_hasta INT(4))
+BEGIN
+	
+	SELECT p.id, nombre, apellido, dni, tipo_doc, email, ruc, partida_numero, 
+	   DATE_FORMAT(f_nacimiento, '%d/%m/%Y') f_nacimiento, estado,gio,
+	   DATE_FORMAT(licencia_vencimiento, '%d/%m/%Y') licencia_vencimiento,
+	   licencia_numero, licencia_vencimiento, observaciones, DATE_FORMAT(p.alta, '%Y/%m/%d') alta,
+	   direccion_id, d.calle, d.altura, d.piso, d.dpto, d.ecalles, d.latitud, d.longitud,
+			s.id seccion_id, s.titulo, s.descripcion as descripcion_seccion
+	FROM persona p, direccion d, seccion s	
+	WHERE p.direccion_id = d.id AND p.estado = 'V'
+	  AND d.seccion_id = s.id
+	  AND DATE_FORMAT( p.alta, '%Y' ) >= a_desde
+		AND DATE_FORMAT( p.alta, '%Y' ) <= a_hasta;
+
+END$$
