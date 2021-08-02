@@ -86,19 +86,21 @@ class Persona {
     }
 
     //Solo devuelve las validadas
-    // public static function obtTodas($BD) {
-    //     return Persona::obtMultiples("obtPersonas", $BD);
-    // }
-    public static function obtTodas($BD, $desde , $hasta) {
-        return self::obtMultiples("obtPersonas($desde , $hasta)", $BD);
+    public static function obtTodas($BD) {
+        return Persona::obtMultiples("obtPersonas", $BD);
+    }
+
+    public static function obtTodosLosVecinos($BD, $desde , $hasta) {
+        return self::obtMultiples("obtVecinos($desde , $hasta)", $BD);
     }
 
     //devuelve todas, validadas o no
-    // public static function obtValidadas($BD) {
-    //     return Persona::obtMultiples("obtPersonasValidadas", $BD);2015
-    // }
-    public static function obtValidadas($BD , $desde , $hasta) {
-        return Persona::obtMultiples("obtPersonasValidadas($desde , $hasta)", $BD);
+    public static function obtValidadas($BD) {
+        return Persona::obtMultiples("obtPersonasValidadas", $BD);
+    }
+
+    public static function obtTodosLosVecinosValidados($BD , $desde , $hasta) {
+        return Persona::obtMultiples("obtVecinosValidados($desde , $hasta)", $BD);
     }
 
     //Devuelve solo personas que hayan hecho alertas alguna vez
