@@ -1,4 +1,4 @@
-CREATE DEFINER=`root`@`localhost` PROCEDURE `obtPersonas`(IN a_desde INT(4), IN a_hasta INT(4))
+CREATE DEFINER=`root`@`localhost` PROCEDURE `obtVecinos`(IN a_desde INT(4), IN a_hasta INT(4))
 BEGIN
 	
 	SELECT p.id, nombre, apellido, dni, tipo_doc, email, ruc, partida_numero, 
@@ -17,7 +17,7 @@ BEGIN
 END$$
 
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `obtPersonasValidadas`(IN a_desde INT(4), IN a_hasta INT(4))
+CREATE DEFINER=`root`@`localhost` PROCEDURE `obtVecinosValidados`(IN a_desde INT(4), IN a_hasta INT(4))
 BEGIN
 	
 	SELECT p.id, nombre, apellido, dni, tipo_doc, email, ruc, partida_numero, 
