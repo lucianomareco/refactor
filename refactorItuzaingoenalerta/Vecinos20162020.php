@@ -16,8 +16,8 @@ $extrasCss = array("css/DT_bootstrap.css", "css/vecinos.css");
 $incluirUI = true;
 
 
-$personas = Persona::obtTodas($BD, 2016 , 2020);
-$personasValidadas= Persona::obtValidadas($BD , 2016 , 2020);
+$personas = Persona::obtTodosVecinos($BD, 2016 , 2020);
+$personasValidadas= Persona::obtVecinosValidados($BD , 2016 , 2020);
 
 
 $titulo = "Listado de personas";
