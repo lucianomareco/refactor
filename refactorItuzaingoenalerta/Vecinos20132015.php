@@ -11,13 +11,13 @@ include_once 'util/util.php';
  */
 
 
-$extrasJs = array("js/Vecinos.js", "js/jquery.dataTables.min.js", "js/DT_bootstrap.js");
+$extrasJs = array("js/Vecinos20132015.js", "js/jquery.dataTables.min.js", "js/DT_bootstrap.js");
 $extrasCss = array("css/DT_bootstrap.css", "css/vecinos.css");
 $incluirUI = true;
 
 
-$personas = Persona::obtTodosVecinos($BD , 2013 , 2015);
-$personasValidadas= Persona::obtVecinosValidados($BD , 2013, 2015);
+$personas = Persona::obtTodosLosVecinos($BD , 2013 , 2015);
+$personasValidadas= Persona::obtTodosLosVecinosValidados($BD , 2013, 2015);
 
 
 $titulo = "Listado de personas";
