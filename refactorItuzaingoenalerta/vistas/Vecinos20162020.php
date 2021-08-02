@@ -58,7 +58,6 @@
                     <th>E-Mail</th>
                     <th>Direcci&oacute;n</th>
                     <th>Estado</th>
-                    <th>Creado por</th>
                     <th>F. de Alta</th>
                     <th>Acci&oacute;nes</th>
                 </tr>
@@ -83,9 +82,6 @@
                     </td>
                     <td name="estado" id="tdEstado<? echo $persona->getId(); ?>">
                         <? echo $persona->getEstadoStr(); ?>
-                    </td>
-                    <td name="creador">
-                        <? echo htmlchars($persona->getCreador(), false); ?>
                     </td>
                     <td name="alta">
                         <? echo $persona->getAlta(); ?>
